@@ -31,10 +31,16 @@ public class Config {
 
 	public static final String CHAINCODE_ROOT_DIR = "chaincode";
 	
-	public static final String CHAINCODE_1_NAME = "identity";
+	public static final String CHAINCODE_1_NAME = "cc_authority";
 	
-	public static final String CHAINCODE_1_PATH = "github.com/identity";
+	public static final String CHAINCODE_1_PATH = "github.com/cc_authority";
 	
 	public static final String CHAINCODE_1_VERSION = "1";
+
+	public static final String CHAINCODE_2_NAME = "cc_hash";
+
+	public static final String CHAINCODE_2_PATH = "github.com/cc_hash";
+
+	public static final String CHAINCODE_2_VERSION = "1";
 
 }

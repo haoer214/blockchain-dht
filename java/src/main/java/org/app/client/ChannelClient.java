@@ -89,8 +89,8 @@ public class ChannelClient {
 	 */
 	public Collection<ProposalResponse> queryByChainCode(String chaincodeName, String functionName, String[] args)
 			throws InvalidArgumentException, ProposalException {
-		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
-				"Querying " + functionName + " on channel " + channel.getName());
+//		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
+//				"Querying " + functionName + " on channel " + channel.getName());
 		QueryByChaincodeRequest request = fabClient.getInstance().newQueryProposalRequest();
 		ChaincodeID ccid = ChaincodeID.newBuilder().setName(chaincodeName).build();
 		request.setChaincodeID(ccid);

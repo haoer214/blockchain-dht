@@ -183,9 +183,13 @@ public class Manager {
         JSONObject peer2 = new JSONObject();
         peer2.put("ip", "localhost");
         peer2.put("port", "9051");
+        JSONObject peer3 = new JSONObject();
+        peer3.put("ip", "localhost");
+        peer3.put("port", "9056");
         peerArray.put(peer0);
         peerArray.put(peer1);
         peerArray.put(peer2);
+        peerArray.put(peer3);
 
         jsonObject.put("entry",entryArray);
         jsonObject.put("peer",peerArray);

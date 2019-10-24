@@ -17,7 +17,7 @@ docker-compose -f docker-compose.yml down
 #../bin/configtxgen -profile OneOrgChannel -outputAnchorPeersUpdate ./config/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
 #
 # Create and Start the Docker containers for the network
-echo -e "\nSetting up the Hyperledger Fabric 1.1 network"
+echo -e "\nSetting up the Hyperledger Fabric 1.4.1 network"
 docker-compose -f docker-compose.yml up -d
 sleep 15
 echo -e "\nNetwork setup completed!!\n"
