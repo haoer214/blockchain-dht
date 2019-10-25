@@ -103,6 +103,7 @@ public class Manager {
                 org1Peers.add(entrys[p]);
             }
             mychannel.initialize();
+            // 链码1
             Collection<ProposalResponse> response = fabClient.deployChainCode(Config.CHAINCODE_1_NAME,
                     Config.CHAINCODE_1_PATH, Config.CHAINCODE_ROOT_DIR, TransactionRequest.Type.GO_LANG.toString(),
                     Config.CHAINCODE_1_VERSION, org1Peers);
@@ -110,6 +111,15 @@ public class Manager {
             for (ProposalResponse res : response) {
                 Logger.getLogger(Manager.class.getName()).log(Level.INFO,
                         entrys_name[i++] + " 安装链码 " + Config.CHAINCODE_1_NAME + " - " + res.getStatus());
+            }
+            // 链码2
+            Collection<ProposalResponse> response2 = fabClient.deployChainCode(Config.CHAINCODE_2_NAME,
+                    Config.CHAINCODE_2_PATH, Config.CHAINCODE_ROOT_DIR, TransactionRequest.Type.GO_LANG.toString(),
+                    Config.CHAINCODE_2_VERSION, org1Peers);
+            int j = 0;
+            for (ProposalResponse res : response2) {
+                Logger.getLogger(Manager.class.getName()).log(Level.INFO,
+                        entrys_name[j++] + " 安装链码 " + Config.CHAINCODE_2_NAME + " - " + res.getStatus());
             }
         } catch (Exception e) {
             System.out.println("安装链码失败！");
@@ -120,12 +130,21 @@ public class Manager {
             // Instantiate Chaincode
             ChannelClient channelClient = new ChannelClient(mychannel.getName(), mychannel, fabClient);
             String[] arguments = { "" };
+            // 链码1
             Collection<ProposalResponse> response = channelClient.instantiateChainCode(Config.CHAINCODE_1_NAME, Config.CHAINCODE_1_VERSION,
                     Config.CHAINCODE_1_PATH, TransactionRequest.Type.GO_LANG.toString(), "init", arguments, null);
             int i = 0;
             for (ProposalResponse res : response) {
                 Logger.getLogger(Manager.class.getName()).log(Level.INFO,
                         entrys_name[i++] + " 实例化链码 " + Config.CHAINCODE_1_NAME + " - " + res.getStatus());
+            }
+            // 链码2
+            Collection<ProposalResponse> response2 = channelClient.instantiateChainCode(Config.CHAINCODE_2_NAME, Config.CHAINCODE_2_VERSION,
+                    Config.CHAINCODE_2_PATH, TransactionRequest.Type.GO_LANG.toString(), "init", arguments, null);
+            int j = 0;
+            for (ProposalResponse res : response2) {
+                Logger.getLogger(Manager.class.getName()).log(Level.INFO,
+                        entrys_name[j++] + " 实例化链码 " + Config.CHAINCODE_2_NAME + " - " + res.getStatus());
             }
         } catch (Exception e) {
             System.out.println("实例化链码失败！");

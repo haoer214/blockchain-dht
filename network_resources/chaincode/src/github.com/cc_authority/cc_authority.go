@@ -48,8 +48,8 @@ func (t *IdentityData) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	// Handle different functions 
 	if function == "initOrg" { //create identity
 		return t.initOrg(stub, args)
-	} else if function == "queryIdentityByOrg" {
-		return t.queryIdentityByOrg(stub, args)
+	} else if function == "queryInfoByOrg" {
+		return t.queryInfoByOrg(stub, args)
 	} 
 
 	fmt.Println("invoke did not find func: " + function) //error
@@ -210,7 +210,7 @@ func getQueryResultForQueryString(stub shim.ChaincodeStubInterface, queryString 
 // and accepting a single query parameter (type).
 // Only available on state databases that support rich query (e.g. CouchDB)
 // =========================================================================================
-func (t *IdentityData) queryIdentityByOrg(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *IdentityData) queryInfoByOrg(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 
 	//   0
 	// "handle"

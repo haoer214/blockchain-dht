@@ -9,7 +9,6 @@ import org.app.util.Util;
 import org.hyperledger.fabric.sdk.*;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;

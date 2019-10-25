@@ -7,14 +7,12 @@ import org.app.config.Config;
 import org.app.user.UserContext;
 import org.app.util.Util;
 import org.hyperledger.fabric.sdk.*;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JSONException;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 /**
  * 该类负责向区块链读取企业公钥、标识前缀以及对应的操作权限，由dht控制组件调用
@@ -55,20 +53,22 @@ public class QueryAuthority {
     }
 
     // 读取企业信息
-    public void query(String org_name){
+    public JSONArray query(String org_name){
+        JSONArray jsonArrayResponse = null;
         try {
             Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, "正在读取企业信息 - " + org_name);
 
-            Collection<ProposalResponse>  responses1Query = channelClient_query.queryByChainCode(Config.CHAINCODE_1_NAME, "queryIdentityByOrg", new String[]{org_name});
+            Collection<ProposalResponse>  responses1Query = channelClient_query.queryByChainCode(Config.CHAINCODE_1_NAME, "queryInfoByOrg", new String[]{org_name});
             for (ProposalResponse pres : responses1Query) {
                 String stringResponse = new String(pres.getChaincodeActionResponsePayload());
-//                JSONArray jsonArrayResponse = JSONArray.fromObject(stringResponse);
+                jsonArrayResponse = JSONArray.fromObject(stringResponse);
                 Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, stringResponse);
             }
         } catch (Exception e) {
             System.out.println("读取数据失败！");
             e.printStackTrace();
         }
+        return jsonArrayResponse;
     }
     public static void main(String[] args) throws JSONException {
 
@@ -82,7 +82,8 @@ public class QueryAuthority {
         configJson.put("Orderer_Address","grpc://localhost:7050");
 
         QueryAuthority queryAuthority = new QueryAuthority(configJson);
-        queryAuthority.query("bupt");
-        queryAuthority.query("beishi");
+        System.out.println(queryAuthority.query("bupt"));
+        System.out.println(queryAuthority.query("beishi"));
+        System.out.println(queryAuthority.query("others"));
     }
 }

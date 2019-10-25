@@ -1,11 +1,13 @@
 org/app/chaincode/authority/QueryAuthority.class
-org/app/user/CAEnrollment.class
+org/app/chaincode/hash/InvokeHash.class
 org/app/util/Util.class
 org/app/chaincode/authority/InvokeAuthority.class
 org/app/client/FabricClient.class
 org/app/network/Manager.class
-org/app/config/Config.class
 org/app/client/CAClient.class
+org/app/user/UserContext.class
+org/app/chaincode/hash/QueryHash.class
+org/app/user/CAEnrollment.class
+org/app/config/Config.class
 org/app/client/ChannelClient.class
 org/app/user/RegisterEnrollUser.class
-org/app/user/UserContext.class

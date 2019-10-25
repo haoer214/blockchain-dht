@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c09a0cec-fff6-40e6-86e3-16bb247d35a7" name="Default Changelist" comment="">
+    <list default="true" id="a342dd0e-1137-4d55-8a2d-862b93900b37" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/InvokeHash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/QueryHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-sdk/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-sdk/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/fabric-sdk-java-1.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/json-20180813.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/InvokeAuthority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/InvokeAuthority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/QueryAuthority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/QueryAuthority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/network/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/network/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/InvokeAuthority.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/InvokeAuthority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/QueryAuthority.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/QueryAuthority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/network/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/network/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../network_resources/chaincode/src/github.com/cc_authority/cc_authority.go" beforeDir="false" afterPath="$PROJECT_DIR$/../network_resources/chaincode/src/github.com/cc_authority/cc_authority.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,20 +34,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1S2Z88Lahy4sMJhVKys9fzOvt0C" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1Sfr8U58KE9OI3kVXpRiEcTaFxG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -43,11 +75,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c09a0cec-fff6-40e6-86e3-16bb247d35a7" name="Default Changelist" comment="" />
-      <created>1570763488768</created>
+      <changelist id="a342dd0e-1137-4d55-8a2d-862b93900b37" name="Default Changelist" comment="" />
+      <created>1571965331428</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1570763488768</updated>
+      <updated>1571965331428</updated>
     </task>
     <servers />
   </component>
@@ -56,15 +88,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
