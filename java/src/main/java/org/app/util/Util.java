@@ -38,12 +38,6 @@ import org.app.user.CAEnrollment;
 import org.app.user.UserContext;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 
-/**
- * 
- * @author Balaji Kadambi
- *
- */
-
 public class Util {
 
 	/**

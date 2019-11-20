@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.*;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,9 +25,9 @@ import java.util.logging.Logger;
 
 public class Manager {
 
-    private FabricClient fabClient;
     private Orderer orderer;
     private Channel mychannel;
+    private FabricClient fabClient;
 
     private Peer[] entrys;
 
@@ -46,11 +47,12 @@ public class Manager {
             peers_name[i] = "peer" + i;
             peers_url[i] = "grpc://" + peerArr.getJSONObject(i).getString("ip") + ":" + peerArr.getJSONObject(i).getString("port");
         }
+
         // 创建通道
         try {
             CryptoSuite.Factory.getCryptoSuite();
             Util.cleanUp();
-            // Construct Channel
+            // 启动Fabric网络时，向证书颁发机构（CA）注册管理员用户
             UserContext org1Admin = new UserContext();
             File pkFolder1 = new File(Config.ORG1_USR_ADMIN_PK);
             File[] pkFiles1 = pkFolder1.listFiles();
@@ -62,7 +64,6 @@ public class Manager {
             org1Admin.setMspId(Config.ORG1_MSP);
             org1Admin.setName(Config.ADMIN);
             fabClient = new FabricClient(org1Admin);
-            // Create a new channel
             orderer = fabClient.getInstance().newOrderer(Config.ORDERER_NAME, Config.ORDERER_URL);
             ChannelConfiguration channelConfiguration = new ChannelConfiguration(new File(Config.CHANNEL_CONFIG_PATH));
             byte[] channelConfigurationSignatures = fabClient.getInstance()
@@ -102,7 +103,6 @@ public class Manager {
             for (int p = 0; p < entrys.length; p++) {
                 org1Peers.add(entrys[p]);
             }
-            mychannel.initialize();
             // 链码1
             Collection<ProposalResponse> response = fabClient.deployChainCode(Config.CHAINCODE_1_NAME,
                     Config.CHAINCODE_1_PATH, Config.CHAINCODE_ROOT_DIR, TransactionRequest.Type.GO_LANG.toString(),
@@ -174,36 +174,41 @@ public class Manager {
         }
     }
 
-    public boolean isOver(){
-        return true;
+    public static String getIP(String paramFile) throws Exception {
+        Properties props = new Properties();
+        props.load(new FileInputStream(new File(paramFile)));
+        return props.getProperty("ip");
     }
 
-    public static void main(String[] args) throws JSONException {
+    public static void main(String[] args) throws Exception {
+
+        // 本机IP地址
+        String IP = getIP("./config.ini");
 
         JSONObject jsonObject = new JSONObject();
 
         JSONArray entryArray = new JSONArray();
         JSONObject entry0 = new JSONObject();
-        entry0.put("ip", "localhost");
+        entry0.put("ip", IP);
         entry0.put("port", "7051");
         JSONObject entry1 = new JSONObject();
-        entry1.put("ip", "localhost");
+        entry1.put("ip", IP);
         entry1.put("port", "7056");
         entryArray.put(entry0);
         entryArray.put(entry1);
 
         JSONArray peerArray = new JSONArray();
         JSONObject peer0 = new JSONObject();
-        peer0.put("ip", "localhost");
+        peer0.put("ip", IP);
         peer0.put("port", "8051");
         JSONObject peer1 = new JSONObject();
-        peer1.put("ip", "localhost");
+        peer1.put("ip", IP);
         peer1.put("port", "8056");
         JSONObject peer2 = new JSONObject();
-        peer2.put("ip", "localhost");
+        peer2.put("ip", IP);
         peer2.put("port", "9051");
         JSONObject peer3 = new JSONObject();
-        peer3.put("ip", "localhost");
+        peer3.put("ip", IP);
         peer3.put("port", "9056");
         peerArray.put(peer0);
         peerArray.put(peer1);

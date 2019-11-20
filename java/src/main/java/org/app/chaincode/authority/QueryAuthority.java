@@ -11,6 +11,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONException;
 import java.util.Collection;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,33 +19,35 @@ import java.util.logging.Logger;
  * 该类负责向区块链读取企业公钥、标识前缀以及对应的操作权限，由dht控制组件调用
  */
 public class QueryAuthority {
-    private static FabricClient fabClient_query;
+
     private static ChannelClient channelClient_query;
 
     // 初始化配置信息
-    public QueryAuthority(JSONObject configJson){
+    public QueryAuthority(){
         try {
             Util.cleanUp();
-            String caUrl = configJson.getString("caUrl");
+            String caUrl = Config.CA_ORG1_URL;
             CAClient caClient = new CAClient(caUrl, null);
             // Enroll Admin to Org1MSP
             UserContext adminUserContext = new UserContext();
-            adminUserContext.setName(configJson.getString("Admin"));
+            adminUserContext.setName(Config.ADMIN);
             adminUserContext.setAffiliation(Config.ORG1);
             adminUserContext.setMspId(Config.ORG1_MSP);
             caClient.setAdminUserContext(adminUserContext);
-            adminUserContext = caClient.enrollAdminUser(configJson.getString("Admin"), configJson.getString("Adminpw"));
+            adminUserContext = caClient.enrollAdminUser(Config.ADMIN, Config.ADMIN_PASSWORD);
 
-            fabClient_query = new FabricClient(adminUserContext);
+            FabricClient fabClient_query = new FabricClient(adminUserContext);
 
             channelClient_query = fabClient_query.createChannelClient(Config.CHANNEL_NAME);
             Channel channel = channelClient_query.getChannel();
-            Peer peer = fabClient_query.getInstance().newPeer(configJson.getString("Eroll_Name"), configJson.getString("Eroll_Address"));
-            Orderer orderer = fabClient_query.getInstance().newOrderer(configJson.getString("Orderer_Name"), configJson.getString("Orderer_Address"));
-            channel.addPeer(peer);
+
+            Orderer orderer = fabClient_query.getInstance().newOrderer(Config.ORDERER_NAME, Config.ORDERER_URL);
+            Peer peer = fabClient_query.getInstance().newPeer("peer0.org1.example.com", "grpc://localhost:7051");
             channel.addOrderer(orderer);
+            channel.addPeer(peer);
             channel.initialize();
-            Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, "准备读取企业信息...");
+            System.out.println();
+            Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, " 准备进行权限验证...");
 
         } catch (Exception e) {
             System.out.println("配置信息初始化失败！");
@@ -56,13 +59,11 @@ public class QueryAuthority {
     public JSONArray query(String org_name){
         JSONArray jsonArrayResponse = null;
         try {
-            Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, "正在读取企业信息 - " + org_name);
-
             Collection<ProposalResponse>  responses1Query = channelClient_query.queryByChainCode(Config.CHAINCODE_1_NAME, "queryInfoByOrg", new String[]{org_name});
             for (ProposalResponse pres : responses1Query) {
                 String stringResponse = new String(pres.getChaincodeActionResponsePayload());
                 jsonArrayResponse = JSONArray.fromObject(stringResponse);
-                Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, stringResponse);
+//                Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, stringResponse);
             }
         } catch (Exception e) {
             System.out.println("读取数据失败！");
@@ -70,20 +71,20 @@ public class QueryAuthority {
         }
         return jsonArrayResponse;
     }
-    public static void main(String[] args) throws JSONException {
-
-        JSONObject configJson = new JSONObject();
-        configJson.put("caUrl","http://localhost:7054");
-        configJson.put("Admin","admin");
-        configJson.put("Adminpw","adminpw");
-        configJson.put("Eroll_Name","peer0.org1.example.com");
-        configJson.put("Eroll_Address","grpc://localhost:7051");
-        configJson.put("Orderer_Name","orderer.example.com");
-        configJson.put("Orderer_Address","grpc://localhost:7050");
-
-        QueryAuthority queryAuthority = new QueryAuthority(configJson);
-        System.out.println(queryAuthority.query("bupt"));
-        System.out.println(queryAuthority.query("beishi"));
-        System.out.println(queryAuthority.query("others"));
-    }
+//    public static void main(String[] args) throws JSONException {
+//
+//        JSONObject configJson = new JSONObject();
+//        configJson.put("caUrl","http://localhost:7054");
+//        configJson.put("Admin","admin");
+//        configJson.put("Adminpw","adminpw");
+//        configJson.put("Eroll_Name","peer0.org1.example.com");
+//        configJson.put("Eroll_Address","grpc://localhost:7051");
+//        configJson.put("Orderer_Name","orderer.example.com");
+//        configJson.put("Orderer_Address","grpc://localhost:7050");
+//
+//        QueryAuthority queryAuthority = new QueryAuthority(configJson);
+//        queryAuthority.query("bupt");
+//        queryAuthority.query("bnu");
+//        queryAuthority.query("other");
+//    }
 }

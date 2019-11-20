@@ -21,11 +21,13 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * 该类负责向区块链写入企业公钥、标识前缀以及对应的操作权限，由标志分配机构调用
  */
 public class InvokeAuthority {
-    private static final byte[] EXPECTED_EVENT_DATA = "!".getBytes(UTF_8);
-    private static final String EXPECTED_EVENT_NAME = "event";
+    private  final byte[] EXPECTED_EVENT_DATA = "!".getBytes(UTF_8);
+    private  final String EXPECTED_EVENT_NAME = "event";
 
     private static FabricClient fabClient_invoke;
     private static ChannelClient channelClient_invoke;
+
+    private static int num = 0;
 
     // 初始化配置信息
     public InvokeAuthority(JSONObject configJson){
@@ -45,12 +47,12 @@ public class InvokeAuthority {
 
             channelClient_invoke = fabClient_invoke.createChannelClient(Config.CHANNEL_NAME);
             Channel channel = channelClient_invoke.getChannel();
-            Peer peer = fabClient_invoke.getInstance().newPeer(configJson.getString("Eroll_Name"), configJson.getString("Eroll_Address"));
             Orderer orderer = fabClient_invoke.getInstance().newOrderer(configJson.getString("Orderer_Name"), configJson.getString("Orderer_Address"));
-            channel.addPeer(peer);
+            Peer peer = fabClient_invoke.getInstance().newPeer(configJson.getString("Eroll_Name"), configJson.getString("Eroll_Address"));
             channel.addOrderer(orderer);
+            channel.addPeer(peer);
             channel.initialize();
-            Logger.getLogger(InvokeAuthority.class.getName()).log(Level.INFO, "准备写入企业信息...");
+            System.out.println("\n【系统提示】- 准备向区块链写入企业注册信息");
 
         } catch (Exception e) {
             System.out.println("配置信息初始化失败！");
@@ -83,7 +85,7 @@ public class InvokeAuthority {
             Collection<ProposalResponse> responses = channelClient_invoke.sendTransactionProposal(request);
             for (ProposalResponse res: responses) {
                 ChaincodeResponse.Status status = res.getStatus();
-                Logger.getLogger(InvokeAuthority.class.getName()).log(Level.INFO, "【写入企业 " + arguments[1] + " 】 - " + status);
+                System.out.println("[" + num++ + "] 写入企业 " + arguments[1] + " - " + status);
             }
         } catch (Exception e) {
             System.out.println("写入数据失败！");
@@ -105,36 +107,36 @@ public class InvokeAuthority {
         dataJson0.put("item_num", "0");
         dataJson0.put("org_name", "bupt");
         dataJson0.put("identity_prefix", "bupt");
-        dataJson0.put("public_key", "0");
-        dataJson0.put("authority", "1001");
+        dataJson0.put("public_key", Config.BUPT_PUB_KRY);
+        dataJson0.put("authority", "15");
 
         JSONObject dataJson1 = new JSONObject();
         dataJson1.put("item_num", "1");
         dataJson1.put("org_name", "bupt");
         dataJson1.put("identity_prefix", "bupt.fnl");
-        dataJson1.put("public_key", "0");
-        dataJson1.put("authority", "1001");
+        dataJson1.put("public_key", Config.BUPT_PUB_KRY);
+        dataJson1.put("authority", "9");
 
         JSONObject dataJson2 = new JSONObject();
         dataJson2.put("item_num", "2");
         dataJson2.put("org_name", "bupt");
-        dataJson2.put("identity_prefix", "beishi");
-        dataJson2.put("public_key", "0");
-        dataJson2.put("authority", "0001");
+        dataJson2.put("identity_prefix", "bnu");
+        dataJson2.put("public_key", Config.BUPT_PUB_KRY);
+        dataJson2.put("authority", "1");
 
         JSONObject dataJson3 = new JSONObject();
         dataJson3.put("item_num", "3");
-        dataJson3.put("org_name", "beishi");
-        dataJson3.put("identity_prefix", "beishi");
-        dataJson3.put("public_key", "0");
-        dataJson3.put("authority", "1001");
+        dataJson3.put("org_name", "bnu");
+        dataJson3.put("identity_prefix", "bnu");
+        dataJson3.put("public_key", Config.BNU_PUB_KRY);
+        dataJson3.put("authority", "15");
 
         JSONObject dataJson4 = new JSONObject();
         dataJson4.put("item_num", "4");
-        dataJson4.put("org_name", "beishi");
+        dataJson4.put("org_name", "bnu");
         dataJson4.put("identity_prefix", "bupt");
-        dataJson4.put("public_key", "0");
-        dataJson4.put("authority", "0001");
+        dataJson4.put("public_key", Config.BNU_PUB_KRY);
+        dataJson4.put("authority", "1");
 
         InvokeAuthority invokeAuthority = new InvokeAuthority(configJson);
         invokeAuthority.invoke(dataJson0);
