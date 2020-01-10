@@ -23,7 +23,7 @@ public class QueryAuthority {
     private static ChannelClient channelClient_query;
 
     // 初始化配置信息
-    public QueryAuthority(){
+    static {
         try {
             Util.cleanUp();
             String caUrl = Config.CA_ORG1_URL;
@@ -46,7 +46,6 @@ public class QueryAuthority {
             channel.addOrderer(orderer);
             channel.addPeer(peer);
             channel.initialize();
-            System.out.println();
             Logger.getLogger(QueryAuthority.class.getName()).log(Level.INFO, " 准备进行权限验证...");
 
         } catch (Exception e) {
@@ -56,7 +55,7 @@ public class QueryAuthority {
     }
 
     // 读取企业信息
-    public JSONArray query(String org_name){
+    public static JSONArray query(String org_name){
         JSONArray jsonArrayResponse = null;
         try {
             Collection<ProposalResponse>  responses1Query = channelClient_query.queryByChainCode(Config.CHAINCODE_1_NAME, "queryInfoByOrg", new String[]{org_name});
@@ -72,7 +71,7 @@ public class QueryAuthority {
         return jsonArrayResponse;
     }
 //    public static void main(String[] args) throws JSONException {
-//
+
 //        JSONObject configJson = new JSONObject();
 //        configJson.put("caUrl","http://localhost:7054");
 //        configJson.put("Admin","admin");
@@ -81,10 +80,9 @@ public class QueryAuthority {
 //        configJson.put("Eroll_Address","grpc://localhost:7051");
 //        configJson.put("Orderer_Name","orderer.example.com");
 //        configJson.put("Orderer_Address","grpc://localhost:7050");
-//
-//        QueryAuthority queryAuthority = new QueryAuthority(configJson);
-//        queryAuthority.query("bupt");
-//        queryAuthority.query("bnu");
-//        queryAuthority.query("other");
+
+//        query("bupt");
+//        query("bnu");
+//        query("other");
 //    }
 }

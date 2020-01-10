@@ -1,6 +1,7 @@
 package org.app.chaincode.hash;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import org.app.client.CAClient;
 import org.app.client.ChannelClient;
@@ -14,6 +15,7 @@ import org.hyperledger.fabric.sdk.Peer;
 import org.hyperledger.fabric.sdk.ProposalResponse;
 
 import java.util.Collection;
+import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +27,7 @@ public class QueryHash {
     private static ChannelClient channelClient_query;
 
     // 初始化配置信息
-    public QueryHash(){
+    static {
         try {
             Util.cleanUp();
             String caUrl = Config.CA_ORG1_URL;
@@ -57,16 +59,17 @@ public class QueryHash {
     }
 
     // 读取映射数据hash
-    public String query(String identifier){
+    public static String query(String identifier){
         JSONArray jsonArray = null;
         try {
             Collection<ProposalResponse> responses1Query = channelClient_query.queryByChainCode(Config.CHAINCODE_2_NAME, "queryHashByIdentifier", new String[]{identifier});
             for (ProposalResponse pres : responses1Query) {
                 String stringResponse = new String(pres.getChaincodeActionResponsePayload());
+                if (stringResponse.length() <= 2)
+                    return "该标识尚未注册！";
                 jsonArray = JSONArray.fromObject(stringResponse);
-//                Logger.getLogger(QueryHash.class.getName()).log(Level.INFO, stringResponse);
+                System.out.println("成功读取标识 " + identifier + " 的映射数据hash");
             }
-            System.out.println("成功读取标识 " + identifier + " 的映射数据hash");
         } catch (Exception e) {
             System.out.println("读取数据失败！");
             e.printStackTrace();
@@ -74,7 +77,7 @@ public class QueryHash {
         return jsonArray.getJSONObject(0).getJSONObject("Record").getString("mappingData_hash");
     }
 //    public static void main(String[] args) throws JSONException {
-//
+
 //        JSONObject configJson = new JSONObject();
 //        configJson.put("caUrl","http://localhost:7054");
 //        configJson.put("Admin","admin");
@@ -83,10 +86,9 @@ public class QueryHash {
 //        configJson.put("Eroll_Address","grpc://localhost:7051");
 //        configJson.put("Orderer_Name","orderer.example.com");
 //        configJson.put("Orderer_Address","grpc://localhost:7050");
-//
-//        QueryHash queryAuthority = new QueryHash(configJson);
-//        System.out.println(queryAuthority.query("bupt/123"));
-//        System.out.println(queryAuthority.query("bupt.fnl/987"));
-//        System.out.println(queryAuthority.query("bnu/000"));
+
+//        System.out.println(query("bupt/123"));
+//        System.out.println(query("bupt.fnl/987"));
+//        System.out.println(query("bnu/000"));
 //    }
 }

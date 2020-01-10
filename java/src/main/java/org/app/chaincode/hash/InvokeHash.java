@@ -1,5 +1,6 @@
 package org.app.chaincode.hash;
 
+import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import org.app.client.CAClient;
 import org.app.client.ChannelClient;
@@ -109,7 +110,7 @@ public class InvokeHash {
 //        dataJson1.put("identifier", "bupt.fnl/987");
 //        dataJson1.put("mappingData_hash", "d92jh4nd");
 //
-//        InvokeHash invokeHash = new InvokeHash(configJson);
+//        InvokeHash invokeHash = new InvokeHash("写入");
 //        invokeHash.invoke(dataJson0);
 //        invokeHash.invoke(dataJson1);
 //    }

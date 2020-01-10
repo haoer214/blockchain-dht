@@ -2,37 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a342dd0e-1137-4d55-8a2d-862b93900b37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/InvokeHash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/QueryHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-sdk/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-sdk/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/fabric-sdk-java-1.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/json-20180813.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/InvokeAuthority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/InvokeAuthority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/QueryAuthority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/authority/QueryAuthority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/network/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/network/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/InvokeHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/InvokeHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/QueryHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/chaincode/hash/QueryHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/blockchain-java-sdk-0.0.1-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/InvokeAuthority.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/InvokeAuthority.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/QueryAuthority.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/chaincode/authority/QueryAuthority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/chaincode/hash/InvokeHash.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/chaincode/hash/InvokeHash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/chaincode/hash/QueryHash.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/chaincode/hash/QueryHash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/config/Config.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/app/network/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/network/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/app/util/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/app/util/Util.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../network_resources/chaincode/src/github.com/cc_authority/cc_authority.go" beforeDir="false" afterPath="$PROJECT_DIR$/../network_resources/chaincode/src/github.com/cc_authority/cc_authority.go" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -46,27 +51,42 @@
   </component>
   <component name="ProjectId" id="1Sfr8U58KE9OI3kVXpRiEcTaFxG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -80,18 +100,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571965331428</updated>
+      <workItem from="1576477797005" duration="5546000" />
+      <workItem from="1576638311689" duration="2667000" />
+      <workItem from="1577350148571" duration="118000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1577350267332">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1577350267332" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1577350267328">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1577350267328" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1577350267327">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1577350267327" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1577350267330">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1577350267330" />
   </component>
 </project>
